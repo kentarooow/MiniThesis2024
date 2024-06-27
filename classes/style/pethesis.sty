@@ -1,0 +1,103 @@
+%pethesis.sty
+\typeout{pethesis.sty - Sat, Jan 23 2010 by Takashi Michikawa}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{enumerate}
+
+% 1inch = 25.4 mm
+% A4 210mm~297mm
+\oddsidemargin=-0.4truemm  %% 25mm
+\evensidemargin=-0.4truemm %% 25mm
+\topmargin=-10.4truemm
+\headsep=10truemm
+\footskip=10truemm
+\textwidth=160truemm %10pt : 172mm
+\textheight=231truemm % 10pt :243mm
+
+% 表紙の設定
+\def\thesistype#1{\gdef\@thesistype{#1}}
+\def\title#1{\gdef\@title{#1}}
+\def\etitle#1{\gdef\@etitle{#1}}
+\def\studentid#1{\gdef\@studentid{#1}}
+\def\author#1{\gdef\@author{#1}}
+\def\supervisor#1{\gdef\@supervisor{#1}}
+\def\affiliation#1{\gdef\@affiliation{#1}}
+
+\renewcommand\maketitle{
+	\thispagestyle{empty}
+
+	\begin{center}
+		\vskip1.8\baselineskip
+		\@thesistype\\
+		\vspace*{3truemm}
+		\includegraphics[width=45truemm]{figures/utlogo.pdf}\\
+		\vspace*{2\zh}
+
+		% 空白の大きさはタイトルの行数に応じて調整
+		{\huge \@title}\\
+		{\large \vskip\baselineskip}
+		{\Large \@etitle}\\
+		\vskip12\baselineskip
+
+		{\Large 指導教員 \@supervisor}\\
+		\vskip2\baselineskip
+
+		{\large \@affiliation}\\
+		{\large 学生証番号\@studentid} \\
+		\vskip\baselineskip
+		{\LARGE  \@author}
+		\vfill
+	\end{center}
+	\newpage
+	\cleardoublepage
+}
+
+%http://www.biwako.shiga-u.ac.jp/sensei/kumazawa/tex/fancyhdrbook.html
+\pagestyle{fancyplain}
+
+\fancyhead{}
+\fancyhead[RO,RE]{\rightmark}
+\fancyhead[LE,LO]{\leftmark}
+\fancyhead[RE]{\gdef\headrulewidth{.4pt}}
+\fancyhead[LO]{\gdef\headrulewidth{.4pt}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{第\ \thechapter\ 章~#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection #1}{}}
+
+%
+% \chapter
+%
+\makeatletter
+\renewcommand{\chapter}{%
+  \if@openright\cleardoublepage\else\clearpage\fi
+    \global\@topnum\z@
+  \if@english\@afterindentfalse\else\@afterindenttrue\fi
+  \secdef\@chapter\@schapter
+}
+\makeatother
+
+%http://www.asianwing.com/chapter.htm
+
+%
+% \tableofcontents
+%
+\setcounter{tocdepth}{2}
+
+\makeatletter
+\renewcommand{\@dotsep}{1} % 9/18 em
+\makeatother
+
+\setlength{\labelwidth}{-4pt}
+\def\mythebibliography#1{
+\list
+ {[\arabic{enumi}]}{\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \setlength{\itemsep}{4pt}
+ \setlength{\topsep}{6pt}
+ \setlength{\parsep}{2pt} %original: 2pt
+ \def\newblock{\hskip .05em plus .15em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax
+}
+\let\endmythebibliography=\endlist

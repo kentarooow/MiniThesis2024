@@ -1,0 +1,149 @@
+{
+    "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
+    "[tex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        // インデント幅を2にする
+        "editor.tabSize": 2
+    },
+    "[latex]": {
+        // スニペット補完中にも補完を使えるようにする
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        // インデント幅を2にする
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "James-Yu.latex-workshop",
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+    },
+    "[bibtex]": {
+        "editor.wordWrap": "off",
+        "editor.tabSize": 3,
+        "editor.insertSpaces": true,
+        "files.trimTrailingWhitespace": true,
+    },
+    // Intellisense for BibTeX
+    "latex-workshop.intellisense.citation.label": "title",
+    "latex-workshop.intellisense.citation.type": "inline",
+    "latex-workshop.intellisense.citation.format": [
+      "author",
+      "title",
+      "journal",
+      "publisher",
+      "booktitle",
+      "year"
+    ],
+    // Basic format settings
+    "latex-workshop.bibtex-format.tab": "3 spaces",
+    "latex-workshop.bibtex-format.case": "lowercase",
+    "latex-workshop.bibtex-format.surround": "Curly braces",
+    "latex-workshop.bibtex-format.trailingComma": true,
+    "latex-workshop.bibtex-format.handleDuplicates": "Comment Duplicates",
+    // Align "="
+    "latex-workshop.bibtex-format.align-equal.enabled": true,
+    // Sort fields
+    "latex-workshop.bibtex-fields.sort.enabled": true,
+    "latex-workshop.bibtex-fields.order": [
+        "title",
+        "author",
+        "editor",
+        "year",
+        "journal",
+        "publisher",
+        "school",
+        "institution",
+    ],
+    // Sort bib order
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.sortby": [
+        "key"
+    ],
+    // 使用パッケージのコマンドや環境の補完を有効にする
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "bash",
+            "args": [
+                "/workdir/bin/compile.sh",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "diff",
+            "command": "bash",
+            "args": [
+                "/workdir/bin/diff.sh",
+                "%DOC_EXT%"
+            ]
+        },
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "compile",
+            "tools": [
+                "latexmk",
+            ]
+        },
+        {
+            "name": "create_diff",
+            "tools": [
+                "diff",
+            ]
+        },
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.clean.method": "glob",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "latex-workshop.view.pdf.ref.viewer": "tabOrBrowser",
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        // "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        // "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.fdb_latexmk",
+        "*.synctex.gz",
+        "_minted*",
+        "*.nav",
+        "*.snm",
+        "*.vrb",
+        "*.run.xml",
+        "*.dvi",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.bcf",
+        //"*.log",
+        //"*/*.log",
+        "*.mtc*",
+        "*.bmt"
+    ],
+    "latex-workshop.latexindent.path": "bash",
+    "latex-workshop.latexindent.args": [
+        "/workdir/bin/linter.sh",
+    ],
+    "latex-workshop.message.latexlog.exclude": [
+        "Japanese fonts will be scaled",
+        "*addjfontfeature*",
+    ],
+    "textlint.configPath": "/wokdir/.textlintrc",
+    "textlint.languages": [
+        "tex",
+        "latex"
+    ],
+}
