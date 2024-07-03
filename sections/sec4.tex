@@ -4,13 +4,37 @@
 \graphicspath{{../figures}}
 
 \section{実験結果・考察}
-経路上の異常音のエネルギーの図を\reffig{energy}に示す．
+まず，正常音のマッピングによる経路内における異常判別結果を示す．
+\reffig{energy_normal}に示すように，正常音のデータに対しては，経路内の全ての座標において，観測音と正常音の差分エネルギーが経路を通じて極めて小さいことが確認できる．
+一方で異常音源の存在する環境下では\reffig{energy_abnormal}に示すように，異常音源を設置した(0,5m -0.3m)付近の経路においてエネルギーが急激に増加していることが確認できる．
+これらから，ニューラルネットワークを用いた正常音のマッピングによる異常の判別が可能であることが確かめられた．
+
+次に，異常音源の座標推定結果を示す．
+\reffig{result}に示すように，異常音源の座標を精度よく推定できていることが確認できる．
+
+異常音源の座標を精度よく推定できた原因として，実験設定において異常音源のエネルギーが正常音のエネルギーと比較して大きかったことが挙げられる．
+異常音源のエネルギーが小さい場合にも同様に異常音源の座標を精度よく推定できるようにすることが今後の課題として挙げられる．
+
 \begin{figure}[tb]
   \centering
-  \includegraphics[keepaspectratio, width=0.8\linewidth]{energy.pdf}
-  \caption{経路上の異常音のエネルギー}
-  \labfig{energy}
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{energy_normal.pdf}
+  \caption{正常データにおける経路上の異常音のエネルギー}
+  \labfig{energy_normal}
 \end{figure}
 
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{energy_abnormal.pdf}
+  \caption{異常データにおける経路上の異常音のエネルギー}
+  \labfig{energy_abnormal}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[keepaspectratio, width=0.8\linewidth]{result.pdf}
+  \caption{異常音源の座標推定結果(x座標, y座標)}
+  \labfig{result}
+\end{figure}
 
 \end{document}
